@@ -1,0 +1,27 @@
+// Place all the styles related to the cocktails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.page-head {
+
+  position: relative;
+
+  .page-title {
+    padding: 70px;
+    text-align: center;
+    position: relative;
+  }
+
+  a {
+    color: $less-light-gray;
+    text-decoration: none;
+    transition: 1s;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

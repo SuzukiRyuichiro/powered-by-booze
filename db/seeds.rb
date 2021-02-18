@@ -9,8 +9,10 @@
 5.times do
   new_cocktail = Cocktail.create(name: Faker::Beer.name)
   new_cocktail.save!
-  new_ingredient = Ingredient.create(name: Faker::Beer.hop)
-  new_ingredient.save!
-  new_dose = Dose.new(description: Faker::Food.measurement, cocktail: new_cocktail, ingredient: new_ingredient)
-  new_dose.save!
+  2.times do
+    new_ingredient = Ingredient.create(name: Faker::Food.ingredient)
+    new_ingredient.save!
+    new_dose = Dose.new(description: Faker::Food.measurement, cocktail: new_cocktail, ingredient: new_ingredient)
+    new_dose.save!
+  end
 end

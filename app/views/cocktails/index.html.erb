@@ -1,0 +1,27 @@
+<div class="page-head">
+  <h1 class="page-title">World's best cocktail list</h1>
+  <%= link_to new_cocktail_path do %>
+    <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
+  <% end %>
+</div>
+
+<% @cocktails.each_with_index do |cocktail, index| %>
+<%= link_to cocktail_path(cocktail) do %>
+<div class="cocktail-card">
+  <h2><%= index+1 %>. <%= cocktail.name %></h2>
+  <img src="https://source.unsplash.com/<%= 1600 + index %>x900/?cocktail,bar" alt="">
+</div>
+<% end %>
+<% end %>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This page is powered by booze <i class="fas fa-cocktail"></i>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="banner" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?cocktail);">
+  <%= link_to cocktails_path do %>
+    <i class="back fas fa-long-arrow-alt-left" style="position: absolute; top: 10px; left: 10px; font-size: 50px;"></i>
+  <% end %>
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <!-- <#%= link_to class="btn btn-flat" %>  -->
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="my-5">How to make it</h1>
+  <%= link_to new_cocktail_dose_path(@cocktail) do %>
+   <p><i class="fas fa-pencil-alt"></i> edit the recipe</p>
+  <% end %>
+  <% @doses.each do |dose| %>
+  <div class="row my-5 border-bottom d-flex flex-column">
+    <div class="mb-5">
+      <h4><%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %></h4>
+    </div>
+  </div>
+  <% end %>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This page is powered by booze <i class="fas fa-cocktail"></i>
+    </div>
+  </div>
+
+</div>
