@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+5.times do
+  new_cocktail = Cocktail.create(name: Faker::Beer.name)
+  new_cocktail.save!
+  new_ingredient = Ingredient.create(name: Faker::Beer.hop)
+  new_ingredient.save!
+  new_dose = Dose.new(description: Faker::Food.measurement, cocktail: new_cocktail, ingredient: new_ingredient)
+  new_dose.save!
+end

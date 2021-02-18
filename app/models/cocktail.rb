@@ -1,5 +1,6 @@
 class Cocktail < ApplicationRecord
-  belongs_to :dose
+  has_many :doses
+  has_many :ingredients, through: :doses
 
   validates :name, presence: true, uniqueness: true
 end
