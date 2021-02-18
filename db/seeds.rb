@@ -8,14 +8,20 @@
 require 'json'
 require 'open-uri'
 
-10.times do
+50.times do
   cocktail_url = open('https://www.thecocktaildb.com/api/json/v1/1/random.php').read
   cocktail_json = JSON.parse(cocktail_url)
-  new_cocktail = Cocktail.new(name: cocktail_json['drinks'][0]['strDrink'], imageURL: cocktail_json['drinks'][0]['strDrinkThumb'])
+  new_cocktail = Cocktail.new(
+    name: cocktail_json['drinks'][0]['strDrink'],
+    imageURL: cocktail_json['drinks'][0]['strDrinkThumb'],
+    instruction: cocktail_json['drinks'][0]['strInstructions']
+    )
+
   puts "#{new_cocktail.name} is valid? #{new_cocktail.valid?}"
   next unless new_cocktail.valid?
 
   puts "creating a cocktail named #{new_cocktail.name}"
+  puts "#{new_cocktail.instruction}"
   new_cocktail.save!
   i = 1
   while cocktail_json["drinks"][0]["strIngredient#{i}"] && cocktail_json["drinks"][0]["strIngredient#{i}"] != "" do
