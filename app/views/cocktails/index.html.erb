@@ -5,14 +5,17 @@
   <% end %>
 </div>
 
-<% @cocktails.each_with_index do |cocktail, index| %>
-<%= link_to cocktail_path(cocktail) do %>
-<div class="cocktail-card">
-  <h2><%= index+1 %>. <%= cocktail.name %></h2>
-  <img src="https://source.unsplash.com/<%= 1600 + index %>x900/?cocktail,bar" alt="">
+<div class="cocktail-list">
+  <% @cocktails.each_with_index do |cocktail, index| %>
+  <%= link_to cocktail_path(cocktail) do %>
+  <div class="cocktail-card grow">
+    <h2><%= index+1 %>. <%= cocktail.name %></h2>
+    <img src=<%= cocktail.imageURL %> alt="cocktail">
+  </div>
+  <% end %>
+  <% end %>
 </div>
-<% end %>
-<% end %>
+
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>

@@ -1,4 +1,4 @@
-<div class="banner" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?cocktail);">
+<div class="banner" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.imageURL %>);">
   <%= link_to cocktails_path do %>
     <i class="back fas fa-long-arrow-alt-left" style="position: absolute; top: 10px; left: 10px; font-size: 50px;"></i>
   <% end %>
