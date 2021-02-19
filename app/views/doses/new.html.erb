@@ -2,7 +2,9 @@
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.association :ingredient, hint: "Don't put too much booze otherwise someone is gonna get fuuucked 🥴" %>
     <%= f.input :description, placeholder: "how much do you want?" %>
-    <%= f.submit %>
+    <div class="submit-button-wrap">
+      <%= f.submit value: 'sprinkle some magic 🪄', class: 'btn btn-light' %>
+    </div>
   <% end %>
 </div>
 

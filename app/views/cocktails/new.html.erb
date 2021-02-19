@@ -1,5 +1,10 @@
-<%= simple_form_for @cocktail do |f| %>
-<%= f.input :name %>
-<%= f.input :imageURL, hint: "choose a pretty one 🍸" %>
-<%= f.submit %>
-<% end %>
+<div class="form-card">
+  <%= simple_form_for @cocktail do |f| %>
+  <%= f.input :name %>
+  <%= f.input :imageURL, label: 'link for image', hint: "choose a pretty one 🍸" %>
+  <%= f.input :instruction, hint: "cheers ✌️" %>
+  <div class="submit-button-wrap">
+    <%= f.submit class: 'btn btn-light' %>
+  </div>
+  <% end %>
+</div>

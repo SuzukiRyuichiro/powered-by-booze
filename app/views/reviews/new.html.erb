@@ -1,0 +1,10 @@
+<div class="form-card">
+  <%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :content, label: 'Review'%>
+  <%= f.input :name, label: 'Your name'%>
+  <%= f.input :rating, label: 'Rate', hint: 'Please rate out of 5'%>
+  <div class="submit-button-wrap">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>
