@@ -1,10 +1,12 @@
 <% def imagePath %>
-  <% unless @cocktail.imageURL == "" %>
-<%  @cocktail.imageURL %>
+  <% if @cocktail.photo.attached? %>
+    <% cl_image_path @cocktail.photo.key %>
   <% else %>
-<% cl_image_path @cocktail.photo.key %>
+    <% @cocktail.imageURL %>
   <% end %>
 <% end %>
+
+
 
 <div class="banner" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= imagePath %>);">
   <%= link_to cocktails_path do %>

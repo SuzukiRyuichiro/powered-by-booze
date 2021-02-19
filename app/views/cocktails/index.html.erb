@@ -18,17 +18,21 @@
 <div class="cocktail-list">
   <% @cocktails.each_with_index do |cocktail, index| %>
   <%= link_to cocktail_path(cocktail) do %>
+
+
   <div class="cocktail-card grow">
-    <% unless cocktail.imageURL == "" %>
-    <%= image_tag cocktail.imageURL, alt: "cocktail" %>
-    <% else %>
+
+
+    <% if cocktail.photo.attached? %>
     <%= cl_image_tag cocktail.photo.key, alt: "cocktail" %>
+    <% else %>
+    <%= image_tag cocktail.imageURL, alt: "cocktail" %>
     <% end %>
+
     <h2><%= index+1 %>. <%= cocktail.name %></h2>
     <div class="stars">
       <% reviews = Review.where(cocktail_id: cocktail.id) %>
       <% reviews.any? ? ratings = reviews.map { |review| review.rating } : ratings = [0] %>
-      <!-- <#% raise %> -->
       <% unless  ((ratings.inject(0.0, :+)) / (ratings.count - 1)).nan? || ((ratings.inject(0.0, :+)) / (ratings.count - 1)).infinite? %>
       <% avg = ((ratings.inject(0.0, :+)) / (ratings.count - 1))%>
       <% else %>
