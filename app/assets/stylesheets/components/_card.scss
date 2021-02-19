@@ -1,14 +1,20 @@
 .cocktail-list {
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
 
   .cocktail-card {
     position: relative;
-    width: 550px;
     height: 650px;
     box-shadow: 0 0 10px #4f4f4f50;
+
+    .rating-avg {
+      position: absolute;
+      right: 21px;
+      bottom: 7%;
+      font-size: 30px;
+    }
 
     h2 {
       color: $gray;
@@ -22,6 +28,15 @@
       height: 500px;
       width: 100%;
       object-fit: cover;
+    }
+
+    .plus {
+      height: 500px;
+      width: 100%;
+      font-size: 300px;
+      text-align: center;
+      line-height: 500px;
+      color: $nezumi;
     }
 
     .stars {

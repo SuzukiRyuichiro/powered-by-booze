@@ -36,7 +36,7 @@
   <h1 class="mt-5">Reviews</h1>
   <% @reviews.each do |review| %>
     <div class="row my-5 border-bottom d-flex justify-content-between">
-      <h4><%= review.content %> - <%= review.name %></h4>
+      <p><%= review.content %> - <%= review.name %></p>
       <div class="stars d-inline">
       <% review.rating.times do %>
         <i class="fas fa-star"></i>

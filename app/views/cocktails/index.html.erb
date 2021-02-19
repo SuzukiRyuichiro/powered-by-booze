@@ -3,24 +3,26 @@
   <%= link_to new_cocktail_path do %>
   <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
   <% end %>
-</div>
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search something....">
+    <div class="list-group">
+    </div>
+  </div>
 
-<!-- <div class="container"> -->
   <div class="cocktail-list">
     <% @cocktails.each_with_index do |cocktail, index| %>
     <%= link_to cocktail_path(cocktail) do %>
     <div class="cocktail-card grow">
       <% if cocktail.imageURL %>
-        <!-- <#% raise %> -->
-        <%= image_tag cocktail.imageURL, alt: "cocktail" %>
+      <%= image_tag cocktail.imageURL, alt: "cocktail" %>
       <% else %>
-         <%= cl_image_tag cocktail.photo.key, alt: "cocktail" %>
+      <%= cl_image_tag cocktail.photo.key, alt: "cocktail" %>
       <% end %>
       <h2><%= index+1 %>. <%= cocktail.name %></h2>
       <div class="stars">
         <% reviews = Review.where(cocktail_id: cocktail.id) %>
         <% reviews.any? ? ratings = reviews.map { |review| review.rating } : ratings = [0] %>
-        <% avg = ((ratings.inject(0.0, :+) / ratings.count) * 2.0).round / 2.0 %>
+        <% avg = ((ratings.inject(0.0, :+)) / (ratings.count - 1)) || 0 %>
         <% avg.floor.times do %>
         <i class="fas fa-star"></i>
         <% end %>
@@ -28,22 +30,30 @@
         <i class="fas fa-star-half"></i>
         <% end %>
       </div>
+      <p class="rating-avg"><%= avg.round(1) %></p>
     </div>
     <% end %>
     <% end %>
+
+    <%= link_to new_cocktail_path do %>
+    <div class="cocktail-card grow">
+      <i class="far fa-plus-square plus"></i>
+      <h2>Add a new cocktail</h2>
+    </div>
+    <% end %>
   </div>
 
-<!-- </div> -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This page is powered by booze <i class="fas fa-cocktail"></i>
+    </div>
+  </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This page is powered by booze <i class="fas fa-cocktail"></i>
-  </div>
-</div>
+  <%= javascript_pack_tag 'index_search' %>
