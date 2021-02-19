@@ -1,5 +1,5 @@
 .cocktail-list {
-  padding: 0 4%;
+  padding: 0 10%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px 16px;
@@ -22,6 +22,14 @@
       height: 500px;
       width: 100%;
       object-fit: cover;
+    }
+
+    .stars {
+      font-size: 26px;
+      color: $less-light-gray;
+      position: absolute;
+      bottom: 100px;
+      right: 10px;
     }
   }
 }

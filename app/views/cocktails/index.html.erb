@@ -1,20 +1,34 @@
 <div class="page-head">
   <h1 class="page-title">World's best cocktail list</h1>
   <%= link_to new_cocktail_path do %>
-    <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
+  <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
   <% end %>
 </div>
 
-<div class="cocktail-list">
-  <% @cocktails.each_with_index do |cocktail, index| %>
-  <%= link_to cocktail_path(cocktail) do %>
-  <div class="cocktail-card grow">
-    <h2><%= index+1 %>. <%= cocktail.name %></h2>
-    <img src=<%= cocktail.imageURL %> alt="cocktail">
+<!-- <div class="container"> -->
+  <div class="cocktail-list">
+    <% @cocktails.each_with_index do |cocktail, index| %>
+    <%= link_to cocktail_path(cocktail) do %>
+    <div class="cocktail-card grow">
+      <img src=<%= cocktail.imageURL %> alt="cocktail">
+      <h2><%= index+1 %>. <%= cocktail.name %></h2>
+      <div class="stars">
+        <% reviews = Review.where(cocktail_id: cocktail.id) %>
+        <% ratings = reviews.map { |review| review.rating } %>
+        <% avg = ((ratings.inject(0.0, :+) / ratings.count) * 2.0).round / 2.0 %>
+        <% avg.floor.times do %>
+        <i class="fas fa-star"></i>
+        <% end %>
+        <% unless (avg.to_f - avg.floor.to_f).zero? %>
+        <i class="fas fa-star-half"></i>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
-</div>
+
+<!-- </div> -->
 
 <div class="footer">
   <div class="footer-links">

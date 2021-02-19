@@ -24,6 +24,7 @@ require 'open-uri'
   puts "#{new_cocktail.instruction}"
   new_cocktail.save!
   i = 1
+
   while cocktail_json["drinks"][0]["strIngredient#{i}"] && cocktail_json["drinks"][0]["strIngredient#{i}"] != "" do
     new_ingredient = Ingredient.new(name: cocktail_json["drinks"][0]["strIngredient#{i}"])
     new_ingredient.valid? ? new_ingredient.save : new_ingredient = Ingredient.find_by(name: new_ingredient.name)
@@ -32,5 +33,17 @@ require 'open-uri'
     new_dose.save!
     puts "#{new_cocktail.name} has #{new_dose.description} of #{new_ingredient.name}"
     i += 1
+  end
+
+  6.times do
+    new_review = Review.new(
+      content: Faker::Quote.yoda,
+      name: Faker::Movies::StarWars.character,
+      rating: (0..5).to_a.sample,
+      )
+    puts "#{new_review.name} says #{new_review.content}... and rate #{new_review.rating}"
+    new_review.cocktail = new_cocktail
+    next unless new_review.valid?
+    new_review.save!
   end
 end

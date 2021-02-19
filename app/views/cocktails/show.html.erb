@@ -11,9 +11,6 @@
 <div class="container">
   <h1 class="mt-5">How to make it</h1>
   <p class="my-5"><%= @cocktail.instruction %></p>
-  <%= link_to new_cocktail_dose_path(@cocktail) do %>
-   <p><i class="fas fa-pencil-alt"></i> edit the recipe</p>
-  <% end %>
   <% @doses.each do |dose| %>
   <div class="row my-5 border-bottom d-flex flex-column">
     <div class="mb-5">
@@ -21,6 +18,27 @@
     </div>
   </div>
   <% end %>
+  <%= link_to new_cocktail_dose_path(@cocktail) do %>
+   <p><i class="fas fa-pencil-alt"></i> edit the recipe</p>
+  <% end %>
+
+  <h1 class="mt-5">Reviews</h1>
+  <% @reviews.each do |review| %>
+    <div class="row my-5 border-bottom d-flex justify-content-between">
+      <!-- <div class="mb-5"> -->
+        <h4><%= review.content %> - <%= review.name %></h4>
+        <div class="stars d-inline">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        </div>
+      <!-- </div> -->
+    </div>
+  <% end %>
+  <%= link_to new_cocktail_review_path(@cocktail) do %>
+  <p><i class="fas fa-pencil-alt"></i> write a review</p>
+  <% end %>
+
   <div class="footer">
     <div class="footer-links">
       <a href="#"><i class="fab fa-github"></i></a>
