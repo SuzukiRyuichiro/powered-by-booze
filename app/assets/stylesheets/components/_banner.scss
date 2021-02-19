@@ -19,14 +19,6 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
-  a {
-    color: $light-gray;
-    transition: ease-in-out 0.5s;
-  }
-
-  a:hover {
-    color: $nezumi;
-  }
 }
 
 .search-bar {
@@ -45,5 +37,13 @@
 }
 
 
+.back {
+  color: $less-light-gray;
+  transition: ease-in-out 0.5s;
+}
+
+.back:hover {
+  color: $nezumi;
+}
 
 

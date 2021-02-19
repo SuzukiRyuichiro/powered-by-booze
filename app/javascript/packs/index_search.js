@@ -10,7 +10,7 @@ searchBox.addEventListener('keyup', (event) => {
       results.innerHTML = "";
       const topTen = data.words.slice(0, 4);
       topTen.forEach((word) => {
-        results.insertAdjacentHTML("beforeend", `<a href="https://www.dndbeyond.com/search?q=${word}" class="list-group-item list-group-item-action">${word}</a>`);
+        results.insertAdjacentHTML("beforeend", `<a https://www.diffordsguide.com/cocktails/search?keyword%5B%5D=${word}" class="list-group-item list-group-item-action">${word}</a>`);
       });
     });
 });

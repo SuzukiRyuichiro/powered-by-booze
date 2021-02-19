@@ -1,3 +1,7 @@
+<%= link_to cocktail_path(@cocktail) do %>
+<i class="back fas fa-long-arrow-alt-left" style="position: absolute; top: 10px; left: 10px; font-size: 50px;"></i>
+<% end %>
+
 <div class="form-card">
   <%= simple_form_for [@cocktail, @review] do |f| %>
   <%= f.input :content, label: 'Review', placeholder: 'It was amazing!'%>

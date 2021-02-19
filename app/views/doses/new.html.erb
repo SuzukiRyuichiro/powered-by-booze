@@ -1,3 +1,7 @@
+<%= link_to cocktail_path(@cocktail) do %>
+<i class="back fas fa-long-arrow-alt-left" style="position: absolute; top: 10px; left: 10px; font-size: 50px;"></i>
+<% end %>
+
 <div class="form-card">
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.association :ingredient, hint: "Don't put too much booze otherwise someone is gonna get fuuucked 🥴" %>
