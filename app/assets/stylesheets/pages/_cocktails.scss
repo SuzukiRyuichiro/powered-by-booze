@@ -4,22 +4,17 @@
 
 .page-head {
 
-  position: relative;
+  text-align: center;
 
   .page-title {
-    padding: 70px;
+    margin-top: 30px;
+    padding: 10px;
     text-align: center;
-    position: relative;
   }
 
   a {
     color: $nezumi;
     text-align: center;
-    text-decoration: none;
-    transition: 1s;
-    position: absolute;
-    right: 50%;
-    bottom: 10px;
   }
 
   a:hover {
