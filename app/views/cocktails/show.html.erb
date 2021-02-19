@@ -21,8 +21,11 @@
   <p class="my-5"><%= @cocktail.instruction %></p>
   <% @doses.each do |dose| %>
   <div class="row my-5 border-bottom d-flex flex-column">
-    <div class="mb-5">
+    <div class="mb-5 d-flex justify-content-between">
       <h4><%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %></h4>
+      <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do  %>
+      <i class="fas fa-eraser"></i>
+      <% end %>
     </div>
   </div>
   <% end %>
@@ -33,14 +36,12 @@
   <h1 class="mt-5">Reviews</h1>
   <% @reviews.each do |review| %>
     <div class="row my-5 border-bottom d-flex justify-content-between">
-      <!-- <div class="mb-5"> -->
-        <h4><%= review.content %> - <%= review.name %></h4>
-        <div class="stars d-inline">
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        </div>
-      <!-- </div> -->
+      <h4><%= review.content %> - <%= review.name %></h4>
+      <div class="stars d-inline">
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      </div>
     </div>
   <% end %>
   <%= link_to new_cocktail_review_path(@cocktail) do %>

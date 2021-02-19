@@ -1,8 +1,8 @@
 <div class="form-card">
   <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.input :imageURL, label: 'link for image', hint: "choose a pretty one 🍸" %>
-  <%= f.input :instruction, hint: "cheers ✌️" %>
+  <%= f.input :imageURL, label: 'Link for am image', hint: "choose a pretty one 🍸 FYI, linked image will be prioritized than uploaded image..." %>
+  <%= f.input :instruction, label: 'How do you make this cocktail?', hint: "please be precise 📝" %>
   <%= f.input :photo, as: :file, label: 'Cocktail photo' %>
   <div class="submit-button-wrap">
     <%= f.submit class: 'btn btn-light' %>
