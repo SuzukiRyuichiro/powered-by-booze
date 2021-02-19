@@ -3,6 +3,7 @@
   <%= f.input :name %>
   <%= f.input :imageURL, label: 'link for image', hint: "choose a pretty one 🍸" %>
   <%= f.input :instruction, hint: "cheers ✌️" %>
+  <%= f.input :photo, as: :file, label: 'Cocktail photo' %>
   <div class="submit-button-wrap">
     <%= f.submit class: 'btn btn-light' %>
   </div>

@@ -1,10 +1,10 @@
 <div class="form-card">
   <%= simple_form_for [@cocktail, @review] do |f| %>
-  <%= f.input :content, label: 'Review'%>
+  <%= f.input :content, label: 'Review', placeholder: 'It was amazing!'%>
   <%= f.input :name, label: 'Your name'%>
-  <%= f.input :rating %>
+  <%= f.input :rating, hint: 'Give a rating out of five!', collection: 0..5 %>
   <div class="submit-button-wrap">
-    <%= f.submit class: 'btn btn-light' %>
+    <%= f.button :submit, 'review!', class: 'btn btn-light'  %>
   </div>
   <% end %>
 </div>

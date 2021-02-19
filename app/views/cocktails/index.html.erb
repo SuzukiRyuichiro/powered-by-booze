@@ -10,11 +10,16 @@
     <% @cocktails.each_with_index do |cocktail, index| %>
     <%= link_to cocktail_path(cocktail) do %>
     <div class="cocktail-card grow">
-      <img src=<%= cocktail.imageURL %> alt="cocktail">
+      <% if cocktail.imageURL %>
+        <!-- <#% raise %> -->
+        <%= image_tag cocktail.imageURL, alt: "cocktail" %>
+      <% else %>
+         <%= cl_image_tag cocktail.photo.key, alt: "cocktail" %>
+      <% end %>
       <h2><%= index+1 %>. <%= cocktail.name %></h2>
       <div class="stars">
         <% reviews = Review.where(cocktail_id: cocktail.id) %>
-        <% ratings = reviews.map { |review| review.rating } %>
+        <% reviews.any? ? ratings = reviews.map { |review| review.rating } : ratings = [0] %>
         <% avg = ((ratings.inject(0.0, :+) / ratings.count) * 2.0).round / 2.0 %>
         <% avg.floor.times do %>
         <i class="fas fa-star"></i>
