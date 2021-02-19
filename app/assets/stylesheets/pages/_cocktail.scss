@@ -1,0 +1,10 @@
+.dose {
+  a {
+    color: $nezumi;
+    transition: ease-in-out 0.5s;
+  }
+
+  a:hover {
+    color: $gray;
+  }
+}

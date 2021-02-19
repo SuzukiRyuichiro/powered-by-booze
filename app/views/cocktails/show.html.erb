@@ -21,7 +21,7 @@
   <p class="my-5"><%= @cocktail.instruction %></p>
   <% @doses.each do |dose| %>
   <div class="row my-5 border-bottom d-flex flex-column">
-    <div class="mb-5 d-flex justify-content-between">
+    <div class="mb-5 d-flex justify-content-between dose">
       <h4><%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %></h4>
       <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do  %>
       <i class="fas fa-eraser"></i>
