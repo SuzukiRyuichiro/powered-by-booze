@@ -211,6 +211,7 @@ GEM
 
 PLATFORMS
   -darwin-20
+  ruby
 
 DEPENDENCIES
   autoprefixer-rails
@@ -238,4 +239,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.2.6
+   2.1.4
