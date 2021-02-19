@@ -19,7 +19,7 @@
   <% @cocktails.each_with_index do |cocktail, index| %>
   <%= link_to cocktail_path(cocktail) do %>
   <div class="cocktail-card grow">
-    <% if cocktail.imageURL %>
+    <% unless cocktail.imageURL == "" %>
     <%= image_tag cocktail.imageURL, alt: "cocktail" %>
     <% else %>
     <%= cl_image_tag cocktail.photo.key, alt: "cocktail" %>
@@ -28,13 +28,20 @@
     <div class="stars">
       <% reviews = Review.where(cocktail_id: cocktail.id) %>
       <% reviews.any? ? ratings = reviews.map { |review| review.rating } : ratings = [0] %>
-      <% avg = ((ratings.inject(0.0, :+)) / (ratings.count - 1)) || 0 %>
-      <% avg.floor.times do %>
-      <i class="fas fa-star"></i>
+      <!-- <#% raise %> -->
+      <% unless  ((ratings.inject(0.0, :+)) / (ratings.count - 1)).nan? || ((ratings.inject(0.0, :+)) / (ratings.count - 1)).infinite? %>
+      <% avg = ((ratings.inject(0.0, :+)) / (ratings.count - 1))%>
+      <% else %>
+      <% avg = 0 %>
       <% end %>
-      <% unless (avg.to_f - avg.floor.to_f).zero? %>
-      <i class="fas fa-star-half"></i>
-      <% end %>
+      <% unless avg.floor.zero? %>
+        <% avg.floor.times do %>
+        <i class="fas fa-star"></i>
+        <% end %>
+        <% unless (avg.to_f - avg.floor.to_f).zero? %>
+        <i class="fas fa-star-half"></i>
+        <% end %>
+        <% end %>
     </div>
     <p class="rating-avg"><%= avg.round(1) %></p>
   </div>
@@ -42,10 +49,10 @@
   <% end %>
 
   <%= link_to new_cocktail_path do %>
-  <div class="cocktail-card grow">
-    <i class="far fa-plus-square plus"></i>
-    <h2>Add a new cocktail</h2>
-  </div>
+    <div class="cocktail-card grow">
+      <i class="far fa-plus-square plus"></i>
+      <h2>Add a new cocktail</h2>
+    </div>
   <% end %>
 </div>
 

@@ -1,5 +1,5 @@
 <% def imagePath %>
-  <% if @cocktail.imageURL %>
+  <% unless @cocktail.imageURL == "" %>
 <%  @cocktail.imageURL %>
   <% else %>
 <% cl_image_path @cocktail.photo.key %>
