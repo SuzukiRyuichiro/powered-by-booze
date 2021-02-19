@@ -1,5 +1,7 @@
 .cocktail-list {
-  padding: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 50px;
@@ -11,8 +13,9 @@
 
     .rating-avg {
       position: absolute;
+      color: $nezumi;
       right: 21px;
-      bottom: 7%;
+      bottom: 4%;
       font-size: 30px;
     }
 
@@ -43,7 +46,7 @@
       font-size: 26px;
       color: $nezumi;
       position: absolute;
-      bottom: 100px;
+      bottom: 1%;
       right: 10px;
     }
   }
@@ -85,20 +88,20 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cocktail-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 1300px) {
   .cocktail-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1766px) {
   .cocktail-list {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
