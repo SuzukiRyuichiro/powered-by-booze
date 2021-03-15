@@ -4,12 +4,21 @@
     <%= link_to new_cocktail_path do %>
     <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
     <% end %>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search a cocktail">
-
-      <div class="list-group">
+    <div class="search-bar d-flex justify-content-center" data-controller="search">
+      <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "",
+      data: {
+      action: "keyup->search#fetchResults",
+      search_target: "input"
+      }
+      %>
+      <div class="list-group" data-search-target="results">
         <!-- serach results -->
       </div>
+      <% end %>
     </div>
   </div>
 </div>

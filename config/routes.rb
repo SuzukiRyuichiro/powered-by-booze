@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      get '/search/:query', to: 'cocktails#search'
+    end
+  end
+
   get 'doses/new'
   get 'doses/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
