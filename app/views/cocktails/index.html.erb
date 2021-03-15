@@ -4,10 +4,9 @@
     <%= link_to new_cocktail_path do %>
     <p>+ add a cocktail to the list <i class="fas fa-cocktail"></i></p>
     <% end %>
-    <div class="search-bar">
+    <div class="search-bar" data-controller="search">
       <input type="text" id="search" placeholder="Search a cocktail">
-
-      <div class="list-group">
+      <div class="list-group" data-search-target="results">
         <!-- serach results -->
       </div>
     </div>
