@@ -11,7 +11,7 @@ puts Ingredient.count
 require 'json'
 require 'open-uri'
 
-50.times do
+80.times do
   cocktail_url = open('https://www.thecocktaildb.com/api/json/v1/1/random.php').read
   cocktail_json = JSON.parse(cocktail_url)
   new_cocktail = Cocktail.new(

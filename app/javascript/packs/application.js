@@ -15,3 +15,11 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
+
+import { loadDynamicSearchbar } from '../components/search_bar';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  loadDynamicSearchbar();
+});
