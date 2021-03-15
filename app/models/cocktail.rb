@@ -14,6 +14,6 @@ class Cocktail < ApplicationRecord
       ingredients: [ :name ]
     },
      using: {
-       tsearch: { prefix: true }
+       tsearch: { prefix: true, dictionary: "english" }
      }
 end
