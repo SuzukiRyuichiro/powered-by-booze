@@ -40,7 +40,7 @@ require 'open-uri'
 
   6.times do
     new_review = Review.new(
-      content: Faker::Quote.yoda,
+      content: Faker::Restaurant.review,
       name: Faker::Movies::StarWars.character,
       rating: (0..5).to_a.sample,
       )
